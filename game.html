@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            #square {
+                background:blue;
+                height:100px;
+                width:100px;
+                position:absolute;
+            }
+        </style>
+        <script src="jquery.min.js"></script>
+        <script>
+            $(document).ready(function(){
+                $("#square").mouseover(function(){
+                    var newTop = Math.random() * (window.innerHeight-100);
+                    var newLeft = Math.random() * (window.innerWidth-100);
+
+                    $(this).animate({
+                        left: newLeft,
+                        top: newTop,
+                    }, 1000);
+                });
+
+                $("#square").click(function(){
+                    $(this).stop();
+                    $(this).animate({
+                        width: '0px',
+                        height: '0px',
+                        top: "+=50",
+                        left: "+=50"
+                    }, 500);
+                });
+            });
+        </script>
+    </head>
+
+    <body>
+        <div id="square"></div>
+    </body>
+</html>
